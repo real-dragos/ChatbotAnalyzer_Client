@@ -1,0 +1,5 @@
+export const ChatbotActionTypes = {
+    FETCH_CHATBOTS: 'FETCH_CHATBOTS',
+    SET_CHATBOTS: 'SET_CHATBOTS',
+    SELECT_CHATBOT: 'SELECT_CHATBOT'
+}

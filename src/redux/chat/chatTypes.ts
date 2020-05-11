@@ -1,0 +1,5 @@
+export const ChatActionTypes = {
+    ADD_NEW_MESSAGE: 'ADD_NEW_MESSAGE',
+    SET_MESSAGES: 'SET_MESSAGES',
+    FETCH_MESSAGES: 'FETCH_MESSAGES'
+}

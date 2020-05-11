@@ -1,0 +1,20 @@
+@import '../../../../styles/settings';
+
+.chatbotOptions {
+    display: flex;
+    justify-content: center;
+    margin-top: $sSize;
+
+    .option {
+        margin: 0 10px;
+        padding: 10px;
+        font-size: $sSize;
+        color: $primaryColor;
+        border-color: $primaryColor;
+
+        &:hover {
+            color: $lightPrimaryColor;
+            border-color: $lightPrimaryColor;
+        }
+    }
+}

@@ -1,0 +1,8 @@
+@import '../../../styles/mixins';
+@import '../../../styles/settings';
+
+.profileImage{
+    border-radius: 50%;
+    border: 5px solid $blueGray;
+    overflow: hidden;
+}

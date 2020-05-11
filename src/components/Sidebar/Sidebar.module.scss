@@ -1,0 +1,13 @@
+@import '../../styles/settings';
+
+.sidebar {
+    background-color: $white;
+    border: 1px solid $blueGray;
+    border-radius: $sSize;
+    box-sizing: border-box;
+    flex: 2;
+    height: 100%;
+    margin-right: $lSize;
+    overflow: hidden;
+    padding: $xsSize;
+}

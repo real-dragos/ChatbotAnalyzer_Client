@@ -1,0 +1,43 @@
+@import "../../../styles/settings";
+
+.messageBar {
+  align-items: center;
+  background: $white;
+  border-top: 1px solid $lightBlueGray;
+  display: flex;
+  flex: 1;
+  padding: 5px 15px;
+
+  .optionsButton {
+    margin-right: 10px;
+    font-size: $mSize;
+    color: $primaryColor;
+    border-color: $lightPrimaryColor;
+  }
+
+  .chatForm {
+    display: flex;
+    width: 100%;
+
+    .textField {
+      border: 0;
+      flex: 1;
+      padding: 5px;
+      outline: none;
+      font-size: 18px;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+
+    .sendButton {
+      background-color: $lightPrimaryColor;
+      border-color: $white;
+      color: $white;
+      padding: 10px;
+
+      &:hover {
+        background-color: $primaryColor;
+      }
+    }
+  }
+}

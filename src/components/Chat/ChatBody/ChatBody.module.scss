@@ -1,0 +1,17 @@
+@import '../../../styles/settings';
+
+.chatBody {
+    flex: 12;
+    background-color: $white;
+    overflow: hidden;
+
+    .container {
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: column nowrap;
+        height: 100%;
+        overflow-y: scroll;
+        padding: $sSize;
+    }
+
+}

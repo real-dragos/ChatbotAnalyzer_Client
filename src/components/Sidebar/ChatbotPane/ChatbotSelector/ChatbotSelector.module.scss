@@ -1,0 +1,31 @@
+@import "../../../../styles/settings";
+
+.chatbotSelector {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  .select {
+    font-size: 18px;
+
+    .error {
+      color: $errorColor;
+    }
+
+    select {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      border: 1px solid $gray;
+      padding: 5px 40px;
+      text-align: center;
+      cursor: pointer;
+
+      option {
+        font-size: $xsSize;
+        text-align: center;
+      }
+    }
+  }
+}

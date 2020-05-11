@@ -1,0 +1,8 @@
+@import '../../styles/settings';
+
+.app {
+    height: 100vh;
+    display: flex;
+    padding: $mSize;
+    box-sizing: border-box;
+}

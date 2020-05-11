@@ -1,0 +1,28 @@
+@import '../../../styles/settings';
+
+.chatbotPane {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: $xlSize;
+    padding: 10px;
+
+    .statusWrapper {
+        font-size: $sSize;
+        font-weight: 400;
+        margin-top: $lSize;
+        margin-bottom: $mSize;
+
+        .pending {
+            color: $primaryColor;
+        }
+
+        .active {
+            color: $successColor;
+        }
+
+        .error {
+            color: $errorColor;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@import '../../../styles/settings';
+
+.message {
+    animation: slideUp 800ms ease-in-out;
+    align-self: flex-start;
+    font-family: 'Open Sans', sans-serif;
+
+    .content {
+        background: $lightBlueGray;
+        border-radius: 5px;
+        border-top-left-radius: 0;
+        padding: 8px 12px;
+        font-size: $xsSize;
+        margin: 0;
+    }
+
+    .timestamp {
+        color: $gray;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 7px;
+        text-align: left;
+    }
+
+    &.owned {
+
+        align-self: flex-end;
+        color: $white;
+        
+        .content {
+            background-color: $lightPrimaryColor;
+            border-radius: 5px;
+            border-bottom-right-radius: 0;
+        }
+
+        .timestamp {
+            text-align: right;
+        }   
+    }
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(75%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1;  }
+  }

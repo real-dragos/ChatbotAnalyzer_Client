@@ -1,0 +1,12 @@
+@import '../../styles/settings';
+
+.chat {
+    background-color: $white;
+    border: 1px solid $blueGray;
+    border-radius: $sSize;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 5;
+    height: 100%;
+    overflow: hidden;
+}

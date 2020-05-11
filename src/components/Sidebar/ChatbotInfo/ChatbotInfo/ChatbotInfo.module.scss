@@ -1,0 +1,17 @@
+@import '../../../../styles/settings';
+
+.chatbotInfo {
+    display: flex;
+    font-size: $xsSize;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+
+    .label {
+        font-weight: bold;
+    }
+
+    .value {
+        color: $primaryColor;
+    }
+}

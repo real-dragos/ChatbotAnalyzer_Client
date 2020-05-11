@@ -1,0 +1,31 @@
+@import '../../../styles/mixins';
+@import '../../../styles/settings';
+
+.iconButton {
+    @include centerFlex;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid $gray;
+    color: $gray;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.iconButton.disabled{
+    pointer-events: none;
+    color: $lightGray !important;
+    background-color: white !important;
+    border-color: $lightGray !important;
+}
+
+.iconButton:hover {
+    cursor: pointer;
+    color: $darkGray;
+    border-color: $darkGray;
+}
+
+.iconButton:active {
+    cursor: pointer;
+    color: $darkerGray;
+    border-color: $darkerGray;
+}

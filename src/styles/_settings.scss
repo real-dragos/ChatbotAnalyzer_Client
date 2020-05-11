@@ -1,0 +1,24 @@
+// colors
+
+$black: #000000;
+$transparentBlack: rgba(0,0,0,0.5);
+$darkerGray: lighten($black, 25%);
+$darkGray: lighten($black, 50%);
+$gray: lighten($black, 75%);
+$lightGray: lighten($black, 90%);
+$white: #ffffff;
+$lightBlueGray: #e0f3ff;
+$blueGray: darken($lightBlueGray, 2%);
+$primaryColor: #0275d8;
+$successColor: #28a502;
+$errorColor: #ad2020;
+$lightPrimaryColor: lighten($primaryColor, 10%);
+$background: #f4f9fe;
+
+// font-sie
+
+$xsSize: 1.4rem;
+$sSize: 2.0rem;
+$mSize: 2.4rem;
+$lSize: 3.2rem;
+$xlSize: 4.8rem;

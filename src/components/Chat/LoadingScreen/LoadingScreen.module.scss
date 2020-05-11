@@ -1,0 +1,15 @@
+@import '../../../styles/settings';
+
+.loadingScreen {
+    align-items: center;
+    background: $transparentBlack;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+
+    .title{
+        color: $white;
+    }
+}

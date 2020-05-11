@@ -1,0 +1,27 @@
+@import '../../../styles/settings';
+
+.chatHeader {
+    background: $white;
+    border-bottom: 1px solid $lightBlueGray;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 5px 20px;
+    align-items: center;
+
+    .left, .right {
+        display: flex;
+    }
+
+    .title{
+        font-size: $sSize;
+        color: $darkerGray;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .headerIcon {
+        margin: 0 5px;
+        color: $darkGray;
+    }
+}
