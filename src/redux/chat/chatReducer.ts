@@ -1,12 +1,13 @@
 import { ChatActionTypes } from './chatTypes';
 import { IMessage } from './../../model/IMessage';
 import { AnyAction } from "redux"
+import { IChatMetadata } from '../../model/IChatMetadata';
 
 interface ChatState {
     messages: IMessage[];
     context?: string;
     responseTime?: number;
-    data?: any;
+    metadata?: IChatMetadata;
 }
 
 const initialState: ChatState = {
@@ -27,6 +28,14 @@ const chatReducer = (state: ChatState = initialState, action: AnyAction) => {
             return {
                 ...state,
                 messages
+            }
+        case ChatActionTypes.SET_METADATA:
+            return {
+                ...state,
+                metadata: {
+                    ...state.metadata,
+                    ...action.payload
+                }
             }
         default:
             return state;

@@ -1,7 +1,7 @@
 import { IChatbot } from './../../../model/IChatbot';
+import { IChatMetadata } from '../../../model/IChatMetadata';
+
 export interface IChatbotInfoPaneProps {
     currentChatbot: IChatbot;
-    responseTime?: number;
-    currentContext?: string;
-    confidenceLevel?: number;
+    chatMetadata: IChatMetadata;
 }

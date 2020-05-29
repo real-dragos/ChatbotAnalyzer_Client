@@ -15,11 +15,11 @@ import MessageBar from './MessageBar/MessageBar';
 class Chat extends React.Component < IChatProps, {} > {
 
     public render() {
-        const {currentChatbot} = this.props;
+        const {currentChatbot, currentUserId} = this.props;
 
         return (<div className={styles.chat}>
             <ChatHeader name={currentChatbot ? currentChatbot.name : defaultChatbotName} />
-            <ChatBody chatbotId={currentChatbot ? currentChatbot.id : '-1'} clicked={() => console.log('Wow')} />
+            <ChatBody userId={currentUserId || '-1'} clicked={() => console.log('Wow')} />
             <MessageBar submitMessage={this.submitMessageHandler} />
         </div>)
     }

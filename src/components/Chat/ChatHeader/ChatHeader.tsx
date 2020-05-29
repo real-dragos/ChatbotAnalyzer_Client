@@ -16,7 +16,7 @@ const ChatHeader: React.FC<IChatHeaderProps> = ({name}) => {
             <div className={styles.right}>
                 <IconButton className={styles.headerIcon}><FiVolume2 /></IconButton>
                 <IconButton className={styles.headerIcon}><FiMaximize2 /></IconButton>
-                <IconButton className={styles.headerIcon}><MdClose /></IconButton>
+                <IconButton className={styles.headerIcon} title='Clear messages'><MdClose /></IconButton>
             </div>
         </div>
     )

@@ -1,7 +1,8 @@
 import io from 'socket.io-client';
 import store from '../redux/store';
-import { addMessage } from '../redux/chat/chatActions';
+import { addMessage, setMetadata } from '../redux/chat/chatActions';
 import { IMessage } from '../model/IMessage';
+import { IChatMetadata } from '../model/IChatMetadata';
 
 class ChatService {
     private static socket: any;
@@ -13,13 +14,18 @@ class ChatService {
 
     public static receiveMessageHandler(response: any){
         console.log("Received Message: ", response)
+        const metadata: IChatMetadata = {
+            numberOfExchanges: store.getState().chat.metadata.numberOfExchanges+=1,
+            ...response.metadata
+        }
         const message: IMessage = {
             id: '-1',
-            text: response,
+            text: response.message,
             ownerId: "other",
             timestamp: new Date()
         }
         store.dispatch(addMessage(message));
+        store.dispatch(setMetadata(metadata));
     }
 
     public static sendMessage(messageData: any){

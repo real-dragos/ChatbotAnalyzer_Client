@@ -1,7 +1,7 @@
 import { apiAction } from './../api/apiActions';
 import { ChatbotActionTypes } from './chatbotsTypes';
 import { chatbotsUrl } from './../../constants';
-import { fetchMessages } from '../chat/chatActions';
+import { fetchMessages, setMetadata } from '../chat/chatActions';
 
 export const fetchChatbotsData = () => apiAction({
     url: chatbotsUrl,
@@ -26,6 +26,7 @@ export const selectChatbot = (id: string) => {
             type: ChatbotActionTypes.SELECT_CHATBOT,
             payload: id
         });
+        dispatch(setMetadata({numberOfExchanges: 0, responseTime: undefined, context: undefined, intent: undefined, confidence: undefined }))
         dispatch(fetchMessages(getState().user.id, id));
     }
 }

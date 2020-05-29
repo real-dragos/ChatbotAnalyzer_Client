@@ -13,10 +13,11 @@ export const dateOptions = {
 export const intentsSizeLabel = 'Intents Size';
 export const vocabularySizeLabel = 'Vocabulary Size';
 export const reponseTimeLabel = 'Response Time';
-export const currentContextLabel = 'Current Context';
-export const confidenceLevelLabel = 'Confidence Level';
+export const contextLabel = 'Context';
+export const intentLabel = 'Intent';
+export const confidenceLabel = 'Confidence (%)';
 export const loadindMessagesLabel = 'Loading Messages';
-
+export const numberOfExchangesLabel = '# Exchanges';
 // storage
 
 export const assetsFolderUrl = "/assets"

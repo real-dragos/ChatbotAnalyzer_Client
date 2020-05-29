@@ -3,7 +3,7 @@ import { IMessage } from './../../../model/IMessage';
 
 export interface IChatBodyProps {
     messages: IMessage[];
-    chatbotId: string;
+    userId: string;
     status: Status
     clicked?: () => void;
 }
