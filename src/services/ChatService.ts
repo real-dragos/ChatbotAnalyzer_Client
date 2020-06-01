@@ -1,11 +1,13 @@
 import io from 'socket.io-client';
 import store from '../redux/store';
-import { addMessage, setMetadata } from '../redux/chat/chatActions';
+import { addMessage, setMetadata, addHistoryItem } from '../redux/chat/chatActions';
 import { IMessage } from '../model/IMessage';
 import { IChatMetadata } from '../model/IChatMetadata';
 
 class ChatService {
     private static socket: any;
+
+    private constructor() {}
 
     public static connect(url:string){
         ChatService.socket = io.connect(url);
@@ -26,6 +28,7 @@ class ChatService {
         }
         store.dispatch(addMessage(message));
         store.dispatch(setMetadata(metadata));
+        store.dispatch(addHistoryItem(metadata));
     }
 
     public static sendMessage(messageData: any){

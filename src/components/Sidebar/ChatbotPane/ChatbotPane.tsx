@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {FaBeer, FaPaw, FaMagnet} from 'react-icons/fa';
+import {FaChartArea, FaSave, FaSyncAlt} from 'react-icons/fa';
 
 import styles from './ChatbotPane.module.scss';
 
@@ -9,13 +9,16 @@ import ChatbotSelector from './ChatbotSelector/ChatbotSelector';
 import ChatbotOptions from './ChatbotOptions/ChatbotOptions';
 import { ICommand } from '../../../model/ICommand';
 import { IChatbotPaneProps } from './IChatbotPaneProps';
+import { toggleGraph } from '../../../redux/controls/controlsActions';
+import FileService from '../../../services/FileService';
+import { FileType } from '../../../model/FileType';
 
 
-const ChatbotPane: React.FC<IChatbotPaneProps> = ({chatbots, currentChatbot, onSelectChatbot, status}) => {
+const ChatbotPane: React.FC<IChatbotPaneProps> = ({chatbots, currentChatbot, onSelectChatbot, status, toggleGraph, messages}) => {
     const options: ICommand[] = [
-        {id: 'opt1', icon: <FaBeer />, callback: () => console.log('Beer')},
-        {id: 'opt2', icon: <FaPaw />, callback: () => console.log('Paw')},
-        {id: 'opt3', icon: <FaMagnet />, callback: () => console.log('Magnet')}
+        {id: 'opt1', title: 'Show Graph', icon: <FaChartArea />, callback: toggleGraph},
+        {id: 'opt2', title: 'Save Conversation', icon: <FaSave />, callback: () => FileService.saveFile(JSON.stringify(messages), 'conversation.json', FileType.JSON)},
+        {id: 'opt3', title: 'Refresh', icon: <FaSyncAlt />, callback: () => onSelectChatbot(currentChatbot.id)}
     ]
 
     return (
@@ -28,7 +31,12 @@ const ChatbotPane: React.FC<IChatbotPaneProps> = ({chatbots, currentChatbot, onS
 }
 
 const mapStateToProps = (state: any) => ({
-    status: state.api.status
+    status: state.api.status,
+    messages: state.chat.messages
 })
 
-export default connect(mapStateToProps)(ChatbotPane);
+const mapDispatchToProps = (dispatch: any) => ({
+    toggleGraph: () => dispatch(toggleGraph())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatbotPane);

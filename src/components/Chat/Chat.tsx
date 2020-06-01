@@ -11,24 +11,34 @@ import ChatService from '../../services/ChatService';
 import ChatHeader from './ChatHeader/ChatHeader';
 import ChatBody from './ChatBody/ChatBody';
 import MessageBar from './MessageBar/MessageBar';
+import { toggleNotifications } from '../../redux/controls/controlsActions';
 
-class Chat extends React.Component < IChatProps, {} > {
+class Chat extends React.Component<IChatProps, any> {
+
+    state = {
+        mobileView: false
+    }
 
     public render() {
-        const {currentChatbot, currentUserId} = this.props;
+        const { activeNotifications, currentChatbot, currentUserId, toggleNotifications } = this.props;
+        const { mobileView } = this.state;
 
-        return (<div className={styles.chat}>
-            <ChatHeader name={currentChatbot ? currentChatbot.name : defaultChatbotName} />
-            <ChatBody userId={currentUserId || '-1'} clicked={() => console.log('Wow')} />
-            <MessageBar submitMessage={this.submitMessageHandler} />
+        return (<div className={styles.chatContainer}>
+            <div className={`${styles.chat} ${mobileView && styles.mobile}`}>
+                <ChatHeader toggleNotifications={toggleNotifications} activeNotifications={activeNotifications} name={currentChatbot ? currentChatbot.name : defaultChatbotName} mobileView={mobileView} toggleView={this.toggleView} />
+                <ChatBody userId={currentUserId || '-1'} />
+                <MessageBar submitMessage={this.submitMessageHandler} />
+            </div>
         </div>)
     }
 
-    private submitMessageHandler = (event: any) => {
-        event.preventDefault();
-        const textMessage = event.target.elements.message.value;
-        event.target.message.value = ''
-    
+    private toggleView = () => this.setState({ mobileView: !this.state.mobileView })
+
+    private submitMessageHandler = (textMessage: string) => {
+        if (!textMessage) {
+            return;
+        }
+
         const message: IMessage = {
             id: '-1',
             text: textMessage,
@@ -36,11 +46,9 @@ class Chat extends React.Component < IChatProps, {} > {
             timestamp: new Date()
         }
 
-        ChatService.sendMessage({message, chatbotId: this.props.currentChatbot.id});
+        ChatService.sendMessage({ message, chatbotId: this.props.currentChatbot.id });
     }
 }
-
-
 
 const mapStateToProps = (state: any) => {
     const { chatbots, selectedChatbotId } = state.chatbot;
@@ -49,7 +57,12 @@ const mapStateToProps = (state: any) => {
     return {
         currentChatbot: selectedChatbot,
         currentUserId: state.user.id,
+        activeNotifications: state.controls.notifications
     }
 }
 
-export default connect(mapStateToProps)(Chat);
+const mapDispatchToProps = (dispatch: any) => ({
+    toggleNotifications: () => dispatch(toggleNotifications()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chat);

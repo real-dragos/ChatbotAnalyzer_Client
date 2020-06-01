@@ -1,0 +1,4 @@
+export const ControlsActionTypes = {
+    TOGGLE_GRAPH: 'TOGGLE_GRAPH',
+    TOGGLE_NOTIFICATIONS: 'TOGGLE_NOTIFICATIONS',
+}

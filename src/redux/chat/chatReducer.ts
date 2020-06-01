@@ -5,17 +5,19 @@ import { IChatMetadata } from '../../model/IChatMetadata';
 
 interface ChatState {
     messages: IMessage[];
-    context?: string;
-    responseTime?: number;
-    metadata?: IChatMetadata;
+    chatHistory: IChatMetadata[];
+    metadata: IChatMetadata;
+    patterns?: string[];
 }
 
 const initialState: ChatState = {
-    messages: []
+    messages: [],
+    chatHistory: [],
+    metadata: {numberOfExchanges: 0 }
 }
 
 const chatReducer = (state: ChatState = initialState, action: AnyAction) => {
-    switch(action.type){     
+    switch (action.type) {
         case ChatActionTypes.ADD_NEW_MESSAGE:
             const messagesCopy = [...state.messages];
             messagesCopy.push(convertToIMessage(action.payload));
@@ -36,6 +38,26 @@ const chatReducer = (state: ChatState = initialState, action: AnyAction) => {
                     ...state.metadata,
                     ...action.payload
                 }
+            }
+        case ChatActionTypes.SET_PATTERNS:
+            return {
+                ...state,
+                patterns: action.payload
+            }
+        case ChatActionTypes.CLEAR_MESSAGES:
+            return {
+                ...state,
+                messages: []
+            }
+        case ChatActionTypes.CLEAR_HISTORY:
+            return {
+                ...state,
+                chatHistory: []
+            }
+        case ChatActionTypes.ADD_NEW_HISTORY_ITEM:
+            return {
+                ...state,
+                chatHistory: [...state.chatHistory, action.payload]
             }
         default:
             return state;

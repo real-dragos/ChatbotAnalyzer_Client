@@ -1,7 +1,7 @@
 export interface IChatMetadata{
+    numberOfExchanges: number;
     responseTime?: number;
     confidence?: number;
-    numberOfExchanges: number;
     context?: string;
     intent?: string;
 }

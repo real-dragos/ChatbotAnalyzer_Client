@@ -6,6 +6,7 @@ $darkerGray: lighten($black, 25%);
 $darkGray: lighten($black, 50%);
 $gray: lighten($black, 75%);
 $lightGray: lighten($black, 90%);
+$lightestGray: #f4f4f4;
 $white: #ffffff;
 $lightBlueGray: #e0f3ff;
 $blueGray: darken($lightBlueGray, 2%);
@@ -15,10 +16,14 @@ $errorColor: #ad2020;
 $lightPrimaryColor: lighten($primaryColor, 10%);
 $background: #f4f9fe;
 
-// font-sie
+// font-size
 
 $xsSize: 1.4rem;
 $sSize: 2.0rem;
 $mSize: 2.4rem;
 $lSize: 3.2rem;
 $xlSize: 4.8rem;
+
+// screen-sizes
+
+$tabletSize: 720px;

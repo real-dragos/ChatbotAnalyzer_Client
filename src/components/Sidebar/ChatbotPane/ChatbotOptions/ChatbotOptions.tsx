@@ -10,7 +10,8 @@ const ChatbotOptions: React.FC<IChatbotOptionsProps> = (props: IChatbotOptionsPr
         {props.options.map(option => 
             <IconButton className={styles.option} 
                         key={option.id} 
-                        onClick={option.callback}>
+                        onClick={option.callback}
+                        title={option.title}>
                         {option.icon}
             </IconButton>)
         }

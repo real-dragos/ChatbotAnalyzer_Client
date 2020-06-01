@@ -8,6 +8,66 @@
   flex: 1;
   padding: 5px 15px;
 
+  .suggestionsContainer {
+    position: relative;
+
+    .calloutContent {
+      position: relative;
+      max-height: 250px;
+      min-width: 250px;
+      padding-right: $xsSize;
+      overflow: auto;
+      right: -17px;
+
+      h2 {
+        color: $lightPrimaryColor;
+        text-transform: uppercase;
+        font-size: $sSize;
+        margin: 0;
+      }
+
+      ul {
+        list-style: none;
+        font-size: $xsSize;
+        padding: 0;
+
+        li {
+          margin: 0;
+
+          h3 {
+            text-transform: uppercase;
+            color: $lightPrimaryColor;
+            margin: 10px 0;
+          }
+
+          a {
+            display: block;
+            margin: 5px 0;
+            font-size: $xsSize;
+            color: $darkerGray;
+            font-weight: 600;
+
+            &:hover {
+              cursor: pointer;
+              color: $primaryColor;
+            }
+          }
+        }
+      }
+    }
+
+    .suggestions {
+      transition: 0.2s all ease-out;
+      top: -90%;
+      position: absolute;
+      transform: scaleY(0);
+
+      &.show {
+        transform: scaleY(1);
+      }
+    }
+  }
+
   .optionsButton {
     margin-right: 10px;
     font-size: $mSize;

@@ -1,0 +1,31 @@
+@import '../../../styles/settings';
+
+.callout {
+	position: absolute;
+	bottom: 200%;
+	left: 0;
+	border-radius: $xsSize;
+
+	.container {
+		min-width: 200px;
+		position: relative;
+		box-sizing: border-box;
+		padding: $xsSize $sSize;
+        background-color: $lightestGray;
+        border-radius: $xsSize;
+
+		.content {
+            position: relative;
+            overflow: hidden;
+		}
+
+		&:after {
+			top: 100%;
+			left: $sSize;
+			position: absolute;
+			content: '';
+			border: 1.5rem solid;
+			border-color: $lightestGray transparent transparent $lightestGray;
+		}
+	}
+}

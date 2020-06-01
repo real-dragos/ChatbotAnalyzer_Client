@@ -32,6 +32,7 @@ export const chatServiceUrl = `${localhost}:5000`;
 export const chatbotsUrl = `${chatServiceUrl}/chatbots`;
 export const usersUrl = `${chatServiceUrl}/users`;
 export const messagesUrl = `${chatServiceUrl}/messages`;
+export const patternsUrl = `${chatServiceUrl}/patterns`;
 
 // messages
 export const unavailableServerError = "Server is unavailable";
