@@ -1,6 +1,7 @@
 import { IChatbot } from './../../model/IChatbot';
 import { AnyAction } from 'redux';
 import { ChatbotActionTypes } from './chatbotsTypes';
+import ConversionService from '../../services/ConversionService';
 
 interface ChatbotsState {
     selectedChatbotId: number,
@@ -15,7 +16,7 @@ const initialState: ChatbotsState = {
 const chatbotsReducer = (state: ChatbotsState = initialState, action: AnyAction): ChatbotsState => {
     switch(action.type){
         case ChatbotActionTypes.SET_CHATBOTS:
-            const chatbots = action.payload.map(convertToIChatbot);
+            const chatbots = action.payload.map(ConversionService.convertToIChatbot);
             return {
                 ...state,
                 chatbots
@@ -29,17 +30,6 @@ const chatbotsReducer = (state: ChatbotsState = initialState, action: AnyAction)
             return state;
     }
 }
-
-const convertToIChatbot = (data: any): IChatbot => ({
-    id: data._id,
-    name: data.name,
-    imageUrl: data.imageUrl,
-    description: data.description,
-    metadata: {
-        intentsSize: data.intentsSize,
-        vocabularySize: data.vocabularySize
-    }
-})
 
 export default chatbotsReducer;
 

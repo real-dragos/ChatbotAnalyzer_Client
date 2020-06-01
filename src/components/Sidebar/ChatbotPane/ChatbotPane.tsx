@@ -12,12 +12,13 @@ import { IChatbotPaneProps } from './IChatbotPaneProps';
 import { toggleGraph } from '../../../redux/controls/controlsActions';
 import FileService from '../../../services/FileService';
 import { FileType } from '../../../model/FileType';
+import { IMessage } from '../../../model/IMessage';
 
 
 const ChatbotPane: React.FC<IChatbotPaneProps> = ({chatbots, currentChatbot, onSelectChatbot, status, toggleGraph, messages}) => {
     const options: ICommand[] = [
         {id: 'opt1', title: 'Show Graph', icon: <FaChartArea />, callback: toggleGraph},
-        {id: 'opt2', title: 'Save Conversation', icon: <FaSave />, callback: () => FileService.saveFile(JSON.stringify(messages), 'conversation.json', FileType.JSON)},
+        {id: 'opt2', title: 'Save Conversation', icon: <FaSave />, callback: () => FileService.saveFile(JSON.stringify(messages?.map((message: IMessage)=>`${message.text}`)), 'conversation.json', FileType.JSON)},
         {id: 'opt3', title: 'Refresh', icon: <FaSyncAlt />, callback: () => onSelectChatbot(currentChatbot.id)}
     ]
 

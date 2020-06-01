@@ -2,6 +2,7 @@ import { ChatActionTypes } from './chatTypes';
 import { IMessage } from './../../model/IMessage';
 import { AnyAction } from "redux"
 import { IChatMetadata } from '../../model/IChatMetadata';
+import ConversionService from '../../services/ConversionService';
 
 interface ChatState {
     messages: IMessage[];
@@ -20,13 +21,13 @@ const chatReducer = (state: ChatState = initialState, action: AnyAction) => {
     switch (action.type) {
         case ChatActionTypes.ADD_NEW_MESSAGE:
             const messagesCopy = [...state.messages];
-            messagesCopy.push(convertToIMessage(action.payload));
+            messagesCopy.push(ConversionService.convertToIMessage(action.payload));
             return {
                 ...state,
                 messages: messagesCopy
             }
         case ChatActionTypes.SET_MESSAGES:
-            const messages = action.payload.chats[0].messages.map(convertToIMessage)
+            const messages = action.payload.chats[0].messages.map(ConversionService.convertToIMessage)
             return {
                 ...state,
                 messages
@@ -63,12 +64,5 @@ const chatReducer = (state: ChatState = initialState, action: AnyAction) => {
             return state;
     }
 }
-
-const convertToIMessage = (data: any): IMessage => ({
-    id: data._id || data.id,
-    text: data.text,
-    ownerId: data.ownerId,
-    timestamp: new Date(data.timestamp)
-})
 
 export default chatReducer;

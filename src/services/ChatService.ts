@@ -3,6 +3,7 @@ import store from '../redux/store';
 import { addMessage, setMetadata, addHistoryItem } from '../redux/chat/chatActions';
 import { IMessage } from '../model/IMessage';
 import { IChatMetadata } from '../model/IChatMetadata';
+import ConversionService from './ConversionService';
 
 class ChatService {
     private static socket: any;
@@ -20,12 +21,7 @@ class ChatService {
             numberOfExchanges: store.getState().chat.metadata.numberOfExchanges+=1,
             ...response.metadata
         }
-        const message: IMessage = {
-            id: '-1',
-            text: response.message,
-            ownerId: "other",
-            timestamp: new Date()
-        }
+        const message: IMessage = ConversionService.convertToIMessage(response.message);
         store.dispatch(addMessage(message));
         store.dispatch(setMetadata(metadata));
         store.dispatch(addHistoryItem(metadata));

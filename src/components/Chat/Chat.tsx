@@ -46,7 +46,7 @@ class Chat extends React.Component<IChatProps, any> {
             timestamp: new Date()
         }
 
-        ChatService.sendMessage({ message, chatbotId: this.props.currentChatbot.id });
+        ChatService.sendMessage({ message, chatbotId: this.props.currentChatbot.id, userId: this.props.currentUserId, context: this.props.context });
     }
 }
 
@@ -57,7 +57,8 @@ const mapStateToProps = (state: any) => {
     return {
         currentChatbot: selectedChatbot,
         currentUserId: state.user.id,
-        activeNotifications: state.controls.notifications
+        activeNotifications: state.controls.notifications,
+        context: state.chat.metadata.context
     }
 }
 
