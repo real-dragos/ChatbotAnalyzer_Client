@@ -1,9 +1,7 @@
 import io from 'socket.io-client';
 import store from '../redux/store';
-import { addMessage, setMetadata, addHistoryItem } from '../redux/chat/chatActions';
-import { IMessage } from '../model/IMessage';
+import { addMessages, setMetadata, addHistoryItem } from '../redux/chat/chatActions';
 import { IChatMetadata } from '../model/IChatMetadata';
-import ConversionService from './ConversionService';
 
 class ChatService {
     private static socket: any;
@@ -21,14 +19,13 @@ class ChatService {
             numberOfExchanges: store.getState().chat.metadata.numberOfExchanges+=1,
             ...response.metadata
         }
-        const message: IMessage = ConversionService.convertToIMessage(response.message);
-        store.dispatch(addMessage(message));
+
+        store.dispatch(addMessages([response.input, response.output]));
         store.dispatch(setMetadata(metadata));
-        store.dispatch(addHistoryItem(metadata));
+        store.dispatch(addHistoryItem({input: response.input, output: response.output, confidence: metadata.confidence, exchange: metadata.numberOfExchanges}));
     }
 
     public static sendMessage(messageData: any){
-        store.dispatch(addMessage(messageData.message))
         if(ChatService.socket){
             ChatService.socket.emit('message', messageData);
         }

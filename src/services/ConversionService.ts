@@ -1,4 +1,3 @@
-import { FileType } from "../model/FileType";
 import { IMessage } from "../model/IMessage";
 import { IChatbot } from "../model/IChatbot";
 

@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import styles from './IconButton.module.scss';
+
 import { IconButtonProps } from './IconButtonProps';
-import { connect } from 'react-redux';
 import { Status } from '../../../model/Status';
 
 const IconButton: React.FC<IconButtonProps> = (props: IconButtonProps) => (

@@ -1,5 +1,29 @@
+@import '../../styles/settings';
+
 .graph {
-    background-color: pink;
-    height: 300px;
-    width: 400px;
+    margin: 0 $xsSize;
+
+    .header {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: $xsSize;
+
+        .closeButton {
+            color: $darkGray;
+            border-color: $darkGray;
+
+            &:hover {
+                color: $darkerGray;
+                border-color: $darkerGray;
+            }
+        }
+    }
+
+    .title {
+        text-align: center;
+        font-size: $sSize;
+        color: $darkerGray;
+        text-transform: uppercase;
+        margin: $xsSize;
+    }
 }

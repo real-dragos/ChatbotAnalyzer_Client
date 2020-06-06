@@ -11,7 +11,6 @@ import { chatServiceUrl, testUsername, currentUserStorageName } from '../../cons
 import { fetchChatbotsData } from '../../redux/chatbots/chatbotsActions';
 import { fetchUserData, setUserData } from '../../redux/user/userActions';
 import { IUser } from '../../model/IUser';
-import Modal from '../../components/Common/Modal/Modal';
 import Graph from '../../components/Graph/Graph';
 
 class App extends React.Component<any, {}> {

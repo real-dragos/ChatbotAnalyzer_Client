@@ -14,11 +14,10 @@ import FileService from '../../../services/FileService';
 import { FileType } from '../../../model/FileType';
 import { IMessage } from '../../../model/IMessage';
 
-
-const ChatbotPane: React.FC<IChatbotPaneProps> = ({chatbots, currentChatbot, onSelectChatbot, status, toggleGraph, messages}) => {
+const ChatbotPane: React.FC<IChatbotPaneProps> = ({chatbots, currentChatbot, onSelectChatbot, status, toggleGraph, history}) => {
     const options: ICommand[] = [
         {id: 'opt1', title: 'Show Graph', icon: <FaChartArea />, callback: toggleGraph},
-        {id: 'opt2', title: 'Save Conversation', icon: <FaSave />, callback: () => FileService.saveFile(JSON.stringify(messages?.map((message: IMessage)=>`${message.text}`)), 'conversation.json', FileType.JSON)},
+        {id: 'opt2', title: 'Save Conversation', icon: <FaSave />, callback: () => FileService.saveFile(JSON.stringify(history?.map((item: any)=>({message: item.input.text, reply: item.output.text}))), 'conversation.json', FileType.JSON)},
         {id: 'opt3', title: 'Refresh', icon: <FaSyncAlt />, callback: () => onSelectChatbot(currentChatbot.id)}
     ]
 
@@ -33,7 +32,7 @@ const ChatbotPane: React.FC<IChatbotPaneProps> = ({chatbots, currentChatbot, onS
 
 const mapStateToProps = (state: any) => ({
     status: state.api.status,
-    messages: state.chat.messages
+    history: state.chat.sessionHistory
 })
 
 const mapDispatchToProps = (dispatch: any) => ({

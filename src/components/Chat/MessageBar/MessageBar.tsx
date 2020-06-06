@@ -61,7 +61,7 @@ const MessageBar: React.FC<IMessageBarProps> = ({ submitMessage, status }) => {
                                     <li key={group.label}>
                                         <h3>{group.label}</h3>
                                         {group.suggestions.map((suggestion, index) => 
-                                        (<a key={index} onClick={() => {submitMessage(suggestion); toggleCallout();}}>{suggestion}</a>))}    
+                                        (<a key={index} href='#' onClick={() => {submitMessage(suggestion); toggleCallout();}}>{suggestion}</a>))}    
                                     </li>
                                 ))}
                             </ul>

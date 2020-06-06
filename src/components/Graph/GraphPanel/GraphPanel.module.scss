@@ -1,0 +1,18 @@
+@import '../../../styles/settings';
+
+.graphPanel {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .filter {
+        width: 50%;
+        height: fit-content;
+        padding: $sSize;
+    }
+
+    .controls {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}

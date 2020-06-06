@@ -1,0 +1,64 @@
+@import '../../../../styles/settings';
+
+.tooltip {
+	box-sizing: border-box;
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	width: 200px;
+	padding: $xsSize;
+	background: $lightestGray;
+	box-shadow: 0 6px 8px rgba(52, 73, 94, .2), 0 1px 1px rgba(52, 73, 94, 0.1);
+	z-index: 10;
+	transition: all 0.2s ease-out;
+	transform: translateY(-50%);
+	pointer-events: none;
+
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 12px;
+		height: 12px;
+		background: $lightestGray;
+		border: 1px solid #ddd;
+		border-top-color: transparent;
+		border-left-color: transparent;
+		transform: translate(-50%, 50%) rotate(45deg);
+		transform-origin: center center;
+		z-index: 10;
+	}
+
+	.tooltipTitle {
+		margin-bottom: $xsSize;
+		font-size: $xsSize;
+		font-weight: 600;
+	}
+
+	.tooltipValue {
+		margin-bottom: 0.2em;
+		line-height: 1.3;
+		font-weight: 550;
+	}
+
+	.tooltipBarValue {
+		font-size: $xsSize;
+		margin-top: 1em;
+		margin-bottom: 0.3em;
+	}
+
+	.tooltipBar {
+		margin-bottom: 0.5em;
+		position: relative;
+		width: 100%;
+		height: 0.6em;
+		background: $lightGray;
+	}
+
+	.tooltipBarFill {
+		background: $primaryColor;
+		height: 0.6em;
+	}
+}

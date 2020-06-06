@@ -1,0 +1,16 @@
+@import '../../../styles/settings';
+
+.barChart {
+	position: relative;
+
+	svg {
+		padding: 5px;
+	}
+
+	.highlight {
+		transform-origin: bottom;
+		transform: scaleY(1.02);
+		cursor: pointer;
+		opacity: 0.85;
+	}
+}

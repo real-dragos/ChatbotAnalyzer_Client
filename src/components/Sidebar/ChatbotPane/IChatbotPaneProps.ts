@@ -9,5 +9,5 @@ export interface IChatbotPaneProps {
     onSelectChatbot: (id: string) => void;
     toggleGraph: () => void; 
     refresh?: ()=>void;
-    messages?: IMessage[]
+    history?: any[]
 }

@@ -45,13 +45,13 @@ export const clearHistory = (): AnyAction => ({
     type: ChatActionTypes.CLEAR_HISTORY
 })
 
-export const addMessage = (message: IMessage): AnyAction => ({
-    type: ChatActionTypes.ADD_NEW_MESSAGE,
-    payload: message
+export const addMessages = (messages: IMessage[]): AnyAction => ({
+    type: ChatActionTypes.ADD_MESSAGES,
+    payload: messages
 });
 
-export const addHistoryItem = (historyItem: IChatMetadata): AnyAction => ({
-    type: ChatActionTypes.ADD_NEW_HISTORY_ITEM,
+export const addHistoryItem = (historyItem: any): AnyAction => ({
+    type: ChatActionTypes.ADD_HISTORY_ITEM,
     payload: historyItem
 })
 
