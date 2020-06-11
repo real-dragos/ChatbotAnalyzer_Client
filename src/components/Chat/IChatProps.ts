@@ -1,5 +1,5 @@
 import { IChatbot } from './../../model/IChatbot';
-import { IMessage } from '../../model/IMessage';
+import { INotification } from '../../model/INotification';
 
 export interface IChatProps {
     currentChatbot: IChatbot;
@@ -7,4 +7,5 @@ export interface IChatProps {
     context?: string;
     toggleNotifications?: () => void;
     activeNotifications?: boolean;
+    setNotification: (Notification: INotification) => void;
 }

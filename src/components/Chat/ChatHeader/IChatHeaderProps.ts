@@ -1,3 +1,5 @@
+import { INotification } from "../../../model/INotification";
+
 export interface IChatHeaderProps {
     name: string;
     mobileView: boolean;
@@ -5,4 +7,5 @@ export interface IChatHeaderProps {
     activeNotifications?: boolean;
     toggleNotifications?: () => void;
     clearMessages?: () => void;
+    setNotification: (notificaiton: INotification) => void;
 }

@@ -1,5 +1,7 @@
 import React from 'react';
+
 import styles from './ProfileImage.module.scss';
+
 import { IProfileImageProps } from './IProfileImageProps';
 import defaultPicture from '../../../assets/default.png';
 

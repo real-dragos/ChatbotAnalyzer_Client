@@ -1,15 +1,17 @@
 import { AnyAction } from "redux"
 import { ControlsActionTypes } from './controlsTypes';
 import { GraphFilter } from "../../model/GraphFilter";
+import { INotification } from "../../model/INotification";
 
 interface ControlsState {
-    notifications: boolean;
+    activeNotifications: boolean;
+    notification?: INotification;
     graph: boolean;
     graphFilter: GraphFilter 
 }
 
 const initialState: ControlsState = {
-    notifications: false,
+    activeNotifications: false,
     graph: false,
     graphFilter: GraphFilter.All
 }
@@ -19,7 +21,7 @@ const controlsReducer = (state: ControlsState = initialState, action: AnyAction)
         case ControlsActionTypes.TOGGLE_NOTIFICATIONS:
             return {
                 ...state,
-                notifications: !state.notifications
+                activeNotifications: !state.activeNotifications
             }
         case ControlsActionTypes.TOGGLE_GRAPH:
             return {
@@ -31,6 +33,11 @@ const controlsReducer = (state: ControlsState = initialState, action: AnyAction)
             return {
                 ...state,
                 graphFilter: action.payload
+            }
+        case ControlsActionTypes.SET_NOTIFICATION:
+            return {
+                ...state,
+                notification: action.payload
             }
         default:
             return state;

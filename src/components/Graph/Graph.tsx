@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import styles from './Graph.module.scss';
@@ -20,7 +20,7 @@ class Graph extends React.Component<IGraphProps, {}> {
     }
 
     render() {
-        const { history, toggleGraph, graphEnabled, graphFilter, updateGraphFilter } = this.props;
+        const { history, toggleGraph, graphEnabled, graphFilter } = this.props;
         const confidenceLimit = 0.85;
         let data: any[];
 

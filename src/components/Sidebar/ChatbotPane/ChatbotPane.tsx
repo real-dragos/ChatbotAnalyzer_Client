@@ -12,7 +12,6 @@ import { IChatbotPaneProps } from './IChatbotPaneProps';
 import { toggleGraph } from '../../../redux/controls/controlsActions';
 import FileService from '../../../services/FileService';
 import { FileType } from '../../../model/FileType';
-import { IMessage } from '../../../model/IMessage';
 
 const ChatbotPane: React.FC<IChatbotPaneProps> = ({chatbots, currentChatbot, onSelectChatbot, status, toggleGraph, history}) => {
     const options: ICommand[] = [

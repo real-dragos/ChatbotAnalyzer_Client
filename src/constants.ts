@@ -40,6 +40,8 @@ export const patternsUrl = `${chatServiceUrl}/patterns`;
 
 // messages
 export const unavailableServerError = 'Server is unavailable';
+export const emptyMessageError = 'The message can\'t be empty';
+export const enableNotificationMessage = 'Notifications Enabled';
 
 // tooltip IDs
 export const tooltipID = 'tooltip';

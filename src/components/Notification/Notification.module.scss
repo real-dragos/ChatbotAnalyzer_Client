@@ -1,0 +1,21 @@
+@import '../../styles/settings';
+
+.notification {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    pointer-events: none;
+
+    .hidden {
+        opacity: 0;
+        transition: all 0.5s ease-out;
+    }
+
+    .visible {
+        opacity: 1;
+        transition: all 0.5s ease-out;
+    }
+}

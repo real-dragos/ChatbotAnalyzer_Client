@@ -30,7 +30,7 @@ const BarChart: React.FC<IBarChartProps> = ({ data, refresh, height, width, titl
                 .attr("font-size", "20px")
                 .text(title)
         }
-    }, [])
+    })
 
     useEffect(() => {
         draw();

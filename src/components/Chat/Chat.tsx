@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import styles from './Chat.module.scss';
 
-import { defaultChatbotName } from '../../constants';
+import { defaultChatbotName, emptyMessageError } from '../../constants';
 import { IChatbot } from '../../model/IChatbot';
 import { IChatProps } from './IChatProps';
 import { IMessage } from '../../model/IMessage';
@@ -11,7 +11,8 @@ import ChatService from '../../services/ChatService';
 import ChatHeader from './ChatHeader/ChatHeader';
 import ChatBody from './ChatBody/ChatBody';
 import MessageBar from './MessageBar/MessageBar';
-import { toggleNotifications } from '../../redux/controls/controlsActions';
+import { toggleNotifications, setNotification } from '../../redux/controls/controlsActions';
+import { INotification } from '../../model/INotification';
 
 class Chat extends React.Component<IChatProps, any> {
 
@@ -36,6 +37,11 @@ class Chat extends React.Component<IChatProps, any> {
 
     private submitMessageHandler = (textMessage: string) => {
         if (!textMessage) {
+            this.props.setNotification({
+                text: emptyMessageError,
+                type: "error",
+                timer: 3000
+            })
             return;
         }
 
@@ -57,13 +63,14 @@ const mapStateToProps = (state: any) => {
     return {
         currentChatbot: selectedChatbot,
         currentUserId: state.user.id,
-        activeNotifications: state.controls.notifications,
+        activeNotifications: state.controls.activeNotifications,
         context: state.chat.metadata.context
     }
 }
 
 const mapDispatchToProps = (dispatch: any) => ({
     toggleNotifications: () => dispatch(toggleNotifications()),
+    setNotification: (notification: INotification)=> dispatch(setNotification(notification))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chat);

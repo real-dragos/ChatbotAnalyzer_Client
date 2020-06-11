@@ -1,0 +1,61 @@
+@import '../../../styles/mixins';
+@import '../../../styles/settings';
+
+.toast {
+    @include centerFlex;
+    opacity: 1;
+    position: absolute;
+    background-color: $infoColor;
+    border: 1px solid $gray;
+    box-sizing: border-box;
+    box-shadow: 0 2px 3px $gray;
+    width: 300px;
+    min-height: 50px;
+    padding: $xsSize;
+    text-align: center;
+
+    .text {
+        margin: 0;
+        color: $white;
+        font-size: 16px;
+    }
+
+    &.top {
+        top: $sSize;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.left {
+        top: $sSize;
+        left: $sSize;
+    }
+
+    &.right {
+        top: $sSize;
+        right: $sSize;
+    }
+
+    &.bottom {
+        bottom: $sSize;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.info {
+        background: $infoColor;
+    }
+
+    &.error {
+        background: $errorColor;
+    }
+
+    &.success {
+        background: $successColor;
+    }
+
+    &.primary {
+        background: $lightestPrimaryColor;
+    }
+
+}

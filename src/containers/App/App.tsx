@@ -5,6 +5,7 @@ import styles from './App.module.scss';
 
 import Chat from '../../components/Chat/Chat';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import Notification from '../../components/Notification/Notification';
 import ChatService from '../../services/ChatService';
 import StorageService from '../../services/StorageService';
 import { chatServiceUrl, testUsername, currentUserStorageName } from '../../constants';
@@ -27,6 +28,7 @@ class App extends React.Component<any, {}> {
         <Sidebar />
         <Chat />
         <Graph />
+        <Notification />
       </div>
     );
   }

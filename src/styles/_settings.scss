@@ -11,9 +11,11 @@ $white: #ffffff;
 $lightBlueGray: #e0f3ff;
 $blueGray: darken($lightBlueGray, 2%);
 $primaryColor: #0275d8;
+$infoColor: #efefef;
 $successColor: #28a502;
 $errorColor: #ad2020;
 $lightPrimaryColor: lighten($primaryColor, 10%);
+$lightestPrimaryColor: lighten($primaryColor, 20%);
 $background: #f4f9fe;
 
 // font-size
